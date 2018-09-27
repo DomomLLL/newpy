@@ -1,0 +1,19 @@
+import urllib.request
+import re
+a=int(input("请输入你的起始页"))
+b=int(input("请输入你的末尾页"))
+n=1
+for i in range(a,b+1):
+	picture="https://www.qiushibaike.com/pic/page/{}/?s=5115855".format(i)
+	user="Chrome/4.0 (compatoble;MSIE 5.5;Windows NT)"
+	req=urllib.request.Request(picture,headers={"User-AGent":user})
+	page=urllib.request.urlopen(req)
+	text1=page.read().decode("utf-8")
+	r1=r'''<div class="thumb">\n{2}.*\n<img src=\"(.*?)\"\salt'''
+	picture1=re.findall(r1,text1)
+	print(picture1)
+	for i in picture1:
+		v=i.split("/")
+		#print(v)
+		urllib.request.urlretrieve("http:"+i,"图片{} {}".format(str(n),v[8]))
+		n=int(n)+1

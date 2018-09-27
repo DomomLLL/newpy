@@ -1,0 +1,2 @@
+import pymongo
+coon = pymongo.Client('localhost',27017)
