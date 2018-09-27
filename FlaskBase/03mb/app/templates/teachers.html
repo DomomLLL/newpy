@@ -1,0 +1,17 @@
+<html>
+<body>
+	{% for t in tlist %}
+
+		{{t['name']}}-------
+		{{t['age']}}-------
+		{% if t['sex'] == 1 %}
+			男
+		{% else %}
+			女
+		{% endif %}	
+		<br>
+
+	{% endfor %}
+</body>
+
+</html>

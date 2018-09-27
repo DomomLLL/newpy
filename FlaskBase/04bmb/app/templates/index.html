@@ -1,0 +1,19 @@
+<!--继承了块之外的内容-->
+<!--继承了块 块中的内容可修改-->
+{% extends 'base.html' %}
+
+{% block content %}
+	{{super()}}<br>
+	我终于会用块了<br>
+{% endblock %}
+
+{% block page %}
+	{{super()}}
+	我还行<br>
+{% endblock %}
+
+<!--块之外的一律无效-->
+我心血来潮在此一游
+
+
+

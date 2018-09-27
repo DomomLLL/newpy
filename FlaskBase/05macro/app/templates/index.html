@@ -1,0 +1,14 @@
+<html>
+
+<body>
+        {% import 'macro.html' as macro %}
+	{% for s in slist %}
+	----------------------------------------<br>
+		{{s['name']}}---{{s['age']}}---{{s['sex']}}<br>
+		{{s['name']}}---{{macro.deal_age(s['age'])}}---{{macro.deal_sex(s['sex'])}}<br>
+	----------------------------------------<br>
+	{% endfor %}
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<html>
+
+<body>
+
+	<form action="" method="post">
+		<!--令牌-->
+		{{form.hidden_tag()}}
+		{{form.name.label}}:{{form.name}}<br>
+		{{form.email.label}}:{{form.email}}<br>
+		{% for e in form.email.errors %}
+			{{e}}<br>
+		{% endfor %}
+		{{form.password.label}}:{{form.password}}<br>
+		{{form.password_again.label}}:{{form.password_again}}<br>
+		{% for e in form.password_again.errors %}
+			{{e}}<br>
+		{% endfor %}
+		{{form.submit}}<br>
+	</form>
+</body>
+
+</html>
