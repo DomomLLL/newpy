@@ -1,0 +1,44 @@
+<!--必须在创建app的时候创建bootstrap(BootStrap类型的对象)才可以使用-->
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+尚观PythonWeb后端课程
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
+                    class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span></button>
+            <a class="navbar-brand" href="/">阳光社区</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">主页</a></li>
+                <li><a href="/">论坛</a></li>
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{url_for('auth.logout')}}">注销</a></li>
+                    <li><a href="{{url_for('auth.user_info')}}">{{current_user.name}}</a></li>
+                {% else %}
+                    <li><a href="{{url_for('auth.login')}}">登录</a></li>
+                    <li><a href="{{url_for('auth.register')}}">注册</a></li>
+
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <!--这里自定义一个块-->
+        {% block page_content %}
+            这里是默认内容
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}
